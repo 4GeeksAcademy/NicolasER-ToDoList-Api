@@ -71,26 +71,29 @@ const Home = () => {
 		setLista(nuevoArray)
 
 	}
+
 		
 
 	return (
 		<div className="container text-center">
+			<label for="exampleInputEmail1" className="form-label"><h1 className="text-center">To Do List</h1></label>
 			<input
 			type="text" 
 			className="form-control"
 			value={tarea}
 			onChange={(e)=> setTarea(e.target.value)} />
-			<button className="btn btn-outline-secondary" onClick={nuevaTarea}>Agregar Tarea</button>
+			<button className="btn btn-primary" style={{margin:"25px"}} onClick={nuevaTarea}>Agregar Tarea</button>
 			<div>
 				<ul className="list-group">
 					{lista.map((item, id)=>(
 						<li key={id} className="list-group-item">{item.label}
-						<button className="btn btn-outline-secondary float-end" onClick={()=> eliminar(id)}>
+						<button className="btn btn-outline-danger float-end" onClick={()=> eliminar(id)}>
 							{/* <i className="fa-solid fa-trash"></i> */}
 							X
 						</button>
 						</li>
 					))}
+					<h3 className="list-group-item">{lista.length+" tareas restantes"}</h3>
 				</ul>
 			</div>
 		</div>
